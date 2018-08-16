@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//后台管理页面 ByPliaf
+Route::get('admin/manager/index','Admin\ManagerController@index')-> name('manager_index');
