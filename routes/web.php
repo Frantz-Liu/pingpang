@@ -23,7 +23,7 @@ Route::post('admin/uploader/webuploader','Admin\UploaderController@webuploader')
 
 
 //后台管理页面 ByPliaf
-Route::get('admin/manager','Admin\ManagerController@index')-> name('manager_index'); //管理员试图列表
+Route::any('admin/manager','Admin\ManagerController@index')-> name('manager_index'); //管理员试图列表
 Route::any('admin/manager/add','Admin\ManagerController@add') -> name('manager_add'); //添加管理员
 Route::get('admin/manager/delete','Admin\ManagerController@delete') -> name('manager_delete'); //删除管理员
 Route::any('admin/manager/edit','Admin\ManagerController@edit') -> name('manager_edit'); //编辑管理员
