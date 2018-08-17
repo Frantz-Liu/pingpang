@@ -17,9 +17,9 @@ Route::get('admin/index/welcome', 'Admin\IndexController@welcome')->name('welcom
 // 人员列表展示
 Route::get('user/index','Admin\UserController@index')-> name('user_index');
 //人员添加
-Route::any('user/add','Admin\UserController@add')->name('user_add');
+Route::any('admin/user/add','Admin\UserController@add')->name('user_add');
 //头像上传
-Route::post('uploader/webuploader','Admin\UploadController@webuploader');
+Route::post('admin/uploader/webuploader','Admin\UploadController@webuploader');
 
 
 //后台管理页面 ByPliaf
