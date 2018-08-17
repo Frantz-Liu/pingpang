@@ -25,7 +25,7 @@ class userTableSeeder extends Seeder
                 'racket_hand' => rand(1,2),//rand随机生成左手或右手
                 'grip' => rand(1,2),//随机生成
                 'style' => ' ',//管理员进行添加字段
-                'pic' => '/static/avatar.jpg'//头像
+                'pic' => '/statics/avatar.jpg'//头像
             ];
         }
         //写入数据表
