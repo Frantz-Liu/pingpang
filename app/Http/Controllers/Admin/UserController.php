@@ -21,8 +21,12 @@ class UserController extends Controller
             //post请求
             //数据验证
             $data = Input::except(['_token']);
+            //去除webuploader默认追加的file表单项
+            unset($data['file']);
+            // $data = Input::except(['file']);
             //写入数据表
             //$result = DB::table('user') -> insert($data);
+            // $data['pic'] = ''//
             $result = User::insert($data);
             //判断
             if($result){
