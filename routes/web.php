@@ -11,6 +11,9 @@
 |
 */
 
+//后台首页路由
+Route::get('admin/index/index', 'Admin\IndexController@index')->name('dashboard');//
+Route::get('admin/index/welcome', 'Admin\IndexController@welcome')->name('welcome');//
 
 //运动员管理
 // 人员列表展示
