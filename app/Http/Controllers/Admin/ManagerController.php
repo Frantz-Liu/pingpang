@@ -27,10 +27,14 @@ class ManagerController extends Controller
         if(Input::method() == "POST")
         {
             //post方法提交add数据
+            $data = Input::except(['_token']); //排除token验证
+            //写入数据表
+            $result = DB::table('manager')->insert($data);
+            //view('admin.manager.index');
         }
         else
         {
-            //跳转视图
+            //get请求跳转视图
             return view('admin.manager.add');
         }
         
@@ -38,8 +42,10 @@ class ManagerController extends Controller
 
     //管理删除
     public function delete()
-    {
-        
+    {   
+        $id = Input::get('id');
+        $result = DB::table('manager')->where('id','=',$id)->delete();
+        return back(); //返回上级并刷新
     }
 
     //管理员修改
@@ -47,12 +53,19 @@ class ManagerController extends Controller
     {
         if(Input::method() == "POST")
         {
-            //post方法提交add数据
+           //post方法提交add数据
+           $data = Input::except(['_token']); //排除token验证
+           //写入数据表
+           //var_dump($data['id']);
+           $result = DB::table('manager')->where('id','=',$data['id'])->update($data);
+           //view('admin.manager.index');
         }
         else
         {
             //跳转视图
-            return view('admin.manager.edit');
+            $id = Input::get('id');
+            $result = DB::table('manager')->where('id','=',$id)->get(); //根据get传递的id获取数据表中的数据
+            return view('admin.manager.edit',compact('result'));
         }
     }
 }
