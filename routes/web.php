@@ -11,6 +11,16 @@
 |
 */
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+//后台首页路由
+Route::get('admin/index/index', 'Admin\IndexController@index')->name('dashboard');//
+Route::get('admin/index/welcome', 'Admin\IndexController@welcome')->name('welcome');//
+=======
+<<<<<<< Updated upstream
+>>>>>>> 1ce61ce2692f2153dcba43350133df9a8fb953cc
+>>>>>>> 0fd2e1f411b23e758e4a85805b25177173dba08c
 
 Route::get('/', function () {
     return view('welcome');
