@@ -26,7 +26,6 @@ class UserController extends Controller
             // $data = Input::except(['file']);
             //写入数据表
             //$result = DB::table('user') -> insert($data);
-            // $data['pic'] = ''//
             $result = User::insert($data);
             //判断
             if($result){

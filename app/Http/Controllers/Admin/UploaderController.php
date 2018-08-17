@@ -16,9 +16,11 @@ class UploaderController extends Controller
             //对文件重命名,防止重复
             $filename = sha1(time() . rand(100000,999999)) . '.' . $request->file('file')->
             getClientOriginalExtension();
-            // dd($filename);
+            //dd($filename);
             $result = Storage::disk('public')->put($filename,file_get_contents($request->file('file')->path()));
             //dd($result);
+            
+            
             //返回信息
             if($result){
                 //成功
