@@ -39,7 +39,7 @@
 			<tr class="text-c">
 				<th width="25"><input type="checkbox" name="" value=""></th>
 				<th width="30">ID</th>
-				<th width="100">运动员名</th>
+				<th width="100">姓名</th>
 				<th width="40">性别</th>
 				<th width="50">国籍</th>
 				<th width="70">年龄</th>
@@ -66,7 +66,7 @@
 				<td><img src="{{$val->pic}}" width="64"></td>
 				<!-- <td class="td-status"><span class="label label-success radius">已启用</span></td> -->
 				<td class="td-manage">
-					<a title="编辑" href="javascript:;" onclick="member_edit('编辑','member-add.html','4','','510')" class="ml-5" style="text-decoration:none">
+					<a title="编辑" href="{{route('user_edit')}}?id={{$val->id}}"  class="ml-5" style="text-decoration:none">
 						<i class="Hui-iconfont">&#xe6df;</i>
 					</a> 
 					<a title="删除" href="{{route('user_delete')}}?id={{$val->id}}"  class="ml-5" style="text-decoration:none">

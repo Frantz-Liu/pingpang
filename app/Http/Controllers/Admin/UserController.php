@@ -36,7 +36,7 @@ class UserController extends Controller
             }
             //json返回数据
             return response()->json($response);
-
+            
         }else{
             //get请求方式
             return view('admin.user.add');
@@ -59,8 +59,21 @@ class UserController extends Controller
         
     }
 
-    //添加
+    //修改
     public function edit(){
-        
+        //判断请求方式
+        if (Input::method() == 'POST') {
+            //POST方式请求
+            $data = Input::except(['_token']);
+            $result = DB::table('user')->where('id','=',$data['id'])->update($data);
+            return  redirect('admin/user/index');
+        }else{
+            //get方式请求
+             $id = Input::get('id');
+            // //根据get传递的id获取数据表中的数据
+            $res = DB::table('user')->where('id','=',$id)->get(); 
+            //展示视图,携带数据
+            return view('admin.user.edit',compact('res'));
+        }
     }
 }
