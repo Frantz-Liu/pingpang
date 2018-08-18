@@ -90,9 +90,11 @@
 	<div class="row cl">
 		<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
 			<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+			<a href="{{route('manager_index')}}"class="btn btn-warning radius">&nbsp;&nbsp;取消&nbsp;&nbsp;</a>
 		</div>
 	</div>
 	</form>
+	
 </article>
 
 <!--_footer 作为公共模版分离出去--> 
