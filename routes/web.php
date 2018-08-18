@@ -14,12 +14,15 @@
 Route::get('admin/index/index', 'Admin\IndexController@index')->name('dashboard');//
 Route::get('admin/index/welcome', 'Admin\IndexController@welcome')->name('welcome');//
 //运动员管理
-// 人员列表展示
-Route::get('user/index','Admin\UserController@index')-> name('user_index');
-//人员添加
-Route::any('admin/user/add','Admin\UserController@add')->name('user_add');
-//头像上传
-Route::post('admin/uploader/webuploader','Admin\UploaderController@webuploader')->name('webuploader');
+Route::get('admin/user/index','Admin\UserController@index')-> name('user_index');// 人员列表展示
+Route::any('admin/user/add','Admin\UserController@add')->name('user_add');//人员添加
+Route::get('admin/user/delete', 'Admin\UserController@delete')->name('user_delete');//实现人员删除
+Route::any('admin/user/edit','Admin\UserController@edit')->name('user_edit');//人员编辑
+Route::post('admin/uploader/webuploader','Admin\UploaderController@webuploader')->name('webuploader');//头像上传
+
+
+
+
 
 
 //后台管理员管理页面 ByPliaf

@@ -65,7 +65,16 @@
 				<td>{{$val->style}}</td>
 				<td><img src="{{$val->pic}}" width="64"></td>
 				<!-- <td class="td-status"><span class="label label-success radius">已启用</span></td> -->
-				<td class="td-manage"><a style="text-decoration:none" onClick="member_stop(this,'10001')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> <a title="编辑" href="javascript:;" onclick="member_edit('编辑','member-add.html','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="change_password('修改密码','change-password.html','10001','600','270')" href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+				<td class="td-manage">
+					<a title="编辑" href="javascript:;" onclick="member_edit('编辑','member-add.html','4','','510')" class="ml-5" style="text-decoration:none">
+						<i class="Hui-iconfont">&#xe6df;</i>
+					</a> 
+					<a title="删除" href="{{route('user_delete')}}?id={{$val->id}}"  class="ml-5" style="text-decoration:none">
+						<i class="Hui-iconfont">&#xe6e2;</i>
+						<!-- <a title="删除" href="javascript:;" onclick="member_del(this,{{$val->id}})" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>					 -->
+					</a>
+				</td>
+				
 			</tr>
 		@endforeach
 		</tbody>
@@ -150,22 +159,25 @@ function change_password(title,url,id,w,h){
 	layer_show(title,url,w,h);	
 }
 /*用户-删除*/
-function member_del(obj,id){
-	layer.confirm('确认要删除吗？',function(index){
-		$.ajax({
-			type: 'POST',
-			url: '',
-			dataType: 'json',
-			success: function(data){
-				$(obj).parents("tr").remove();
-				layer.msg('已删除!',{icon:1,time:1000});
-			},
-			error:function(data) {
-				console.log(data.msg);
-			},
-		});		
-	});
-}
+// function member_del(obj,id){
+// 	layer.confirm('确认要删除吗？',function(index){
+// 		//发送异步删除数据
+// 		//将要删除的ID数据传递给后端
+// 		$.ajax({
+// 			type: 'GET',
+// 			url: "",//后台方法去删除数据，对应处理也可记录删除的数据日志等
+// 			dataType: 'json',
+// 			data:{"id":'id'},
+// 			success: function(data){
+// 				$(obj).parents("tr").remove();
+// 				layer.msg('已删除!',{icon:1,time:1000});
+// 			},
+// 			error:function(data) {
+// 				console.log(data.msg);
+// 			},
+// 		});		
+// 	});
+// }
 </script> 
 </body>
 </html>

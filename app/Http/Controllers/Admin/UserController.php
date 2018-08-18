@@ -30,6 +30,7 @@ class UserController extends Controller
             //判断
             if($result){
                 $response = ['code'=>0,'msg'=>'用户添加成功'];
+                return  redirect('admin/user/index');
             }else {
                 $response = ['code'=>1,'msg'=>'用户添加失败'];
             }
@@ -41,5 +42,25 @@ class UserController extends Controller
             return view('admin.user.add');
            }
             
+    }
+
+    //删除
+    public function delete(){
+        // 接受前端要删除的数据
+		$id = Input::get('id');
+        $res = DB::table('user')->where('id','=',$id)->delete();
+        if($res){
+            //删除成功重定向到列表
+            return  redirect('admin/user/index');
+            
+        }else{
+            $response = ['code'=>1,'msg'=>'用户添加失败'];
+        }
+        
+    }
+
+    //添加
+    public function edit(){
+        
     }
 }
