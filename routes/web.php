@@ -22,8 +22,13 @@ Route::any('admin/user/add','Admin\UserController@add')->name('user_add');
 Route::post('admin/uploader/webuploader','Admin\UploaderController@webuploader')->name('webuploader');
 
 
-//后台管理页面 ByPliaf
-Route::any('admin/manager','Admin\ManagerController@index')-> name('manager_index'); //管理员视图列表
+//后台管理员管理页面 ByPliaf
+Route::get('admin/manager','Admin\ManagerController@index')-> name('manager_index'); //管理员视图列表
 Route::any('admin/manager/add','Admin\ManagerController@add') -> name('manager_add'); //添加管理员
 Route::get('admin/manager/delete','Admin\ManagerController@delete') -> name('manager_delete'); //删除管理员
 Route::any('admin/manager/edit','Admin\ManagerController@edit') -> name('manager_edit'); //编辑管理员
+//后台赛事管理页面 ByPliaf
+Route::get('admin/competitions','Admin\CompetitionsController@index') -> name('competitions_index'); //赛事视图列表
+Route::any('admin/competitions/add','Admin\CompetitionsController@add') -> name('competitions_add'); //添加管理员
+Route::get('admin/competitions/delete','Admin\CompetitionsController@delete') -> name('competitions_delete'); //删除管理员
+Route::any('admin/competitions/edit','Admin\CompetitionsController@edit') -> name('competitions_edit'); //编辑管理员

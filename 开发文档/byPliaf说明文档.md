@@ -25,7 +25,7 @@
 | id       |                     | 自增主键  |
 | competitions_name            | string(50) | 赛事名称 |
 | date     | date                | 赛事日期  |
-| events   | enum('男单','男双','女单','女双','混双','男团','女团') | 比赛项目  |
+| events   | string(100) | 比赛项目  |
 | counrty   | string(20)     | 比赛国家     |
 | city   | string(20)           | 比赛城市  |
 
