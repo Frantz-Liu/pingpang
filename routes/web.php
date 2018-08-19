@@ -21,7 +21,18 @@ Route::get('admin/user/delete', 'Admin\UserController@delete')->name('user_delet
 Route::any('admin/user/edit','Admin\UserController@edit')->name('user_edit');//人员编辑
 Route::post('admin/uploader/webuploader','Admin\UploaderController@webuploader')->name('webuploader');//头像上传
 
+<<<<<<< HEAD
 //后台管理员页面 ByPliaf
+=======
+//实现matchs比赛数据表
+Route::get('admin/matchs/index','Admin\MatchsController@index')->name('matchs_index');//比赛数据列表展示
+Route::get('admin/matchs/delete','Admin\MatchsController@delete')->name('matchs_delete');//比赛删除
+Route::any('admin/matchs/add','Admin\MatchsController@add')->name('matchs_add');//比赛添加
+Route::any('admin/matchs/edit','Admin\MatchsController@edit')->name('matchs_edit');//比赛修改
+
+
+//后台管理员管理页面 ByPliaf
+>>>>>>> 82c3bdeee5ecb41b9cf29290ea5ba7e787627cc1
 Route::get('admin/manager','Admin\ManagerController@index')-> name('manager_index'); //管理员视图列表
 Route::any('admin/manager/add','Admin\ManagerController@add') -> name('manager_add'); //添加管理员
 Route::get('admin/manager/delete','Admin\ManagerController@delete') -> name('manager_delete'); //删除管理员
