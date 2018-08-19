@@ -86,6 +86,14 @@
 				</ul>
 			</dd>
 		</dl>
+		<dl id="menu-member">
+			<dt><i class="Hui-iconfont">&#xe60d;</i> 比赛数据管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a data-href="{{route('matchs_index')}}" data-title="比赛数据列表" href="javascript:;">比赛数据列表</a></li>
+				</ul>
+			</dd>
+		</dl>
 		<dl id="menu-tongji">
 			<dt><i class="Hui-iconfont">&#xe61a;</i> 系统统计<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
