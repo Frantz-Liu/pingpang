@@ -10,6 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//登录路由
+Route::get('admin/public/login','Admin\PublicController@login');
+Route::post('admin/public/check','Admin\PublicController@check')->name('admin_check_login');
+
+
+
+
 //后台首页路由
 Route::get('admin/index', 'Admin\IndexController@index')->name('admin_index');//后台首页
 Route::get('admin/index/welcome', 'Admin\IndexController@welcome')->name('admin_welcome');//后台欢迎页

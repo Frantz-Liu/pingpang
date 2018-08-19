@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'admin',
         'passwords' => 'users',
     ],
 
@@ -36,11 +36,15 @@ return [
     */
 
     'guards' => [
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
+        // 'web' => [
+        //     'driver' => 'session',
+        //     'provider' => 'users',
+        // ],
+        //仿照自定义一个guard
+        'admin'=> [
+            'driver'=>'session',
+            'provider' => 'manager',
         ],
-
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -65,11 +69,11 @@ return [
     */
 
     'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\User::class,
+        //定义提供者
+        'manager'=>[
+            'driver'=>'eloquent',
+            'model' =>App\model\Manager::class,
         ],
-
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
