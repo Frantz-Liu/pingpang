@@ -35,7 +35,7 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>赛事:</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="比赛赛事名" id="competitions" name="">
+				<input type="text" class="input-text" value="" placeholder="比赛赛事名" id="competitions" name="" >
 			</div>
 		</div>
 		<!-- 比赛项目 -->
@@ -57,9 +57,22 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>比赛时间:</label>
 			<div class="formControls col-xs-8 col-sm-9">
+			<!-- <input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}' })" id="datemin" class="input-text Wdate" style="width:120px;"> -->
 				<input type="text" class="input-text" placeholder="比赛时间" name="datetime" id="datetime">
 			</div>
 		</div>
+		<!-- <div class="container">
+    		<div class="row">
+        		<div class='col-sm-6'>
+            		<input type='text' class="form-control" id='datetimepicker4'/>
+       	 		</div>
+        			<script type="text/javascript">
+            			$(function () {
+                			$('#datetimepicker4').datetimepicker({locale: 'zh-cn'});
+            			});
+        			</script>
+   			</div>
+		</div> -->
 		<!-- 比赛台号 -->
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>台号:</label>

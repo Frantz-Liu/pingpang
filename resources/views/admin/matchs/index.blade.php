@@ -22,16 +22,16 @@
 <title>赛事数据表</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 用户管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 赛事数据表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
 	<div class="text-c"> 日期范围：
 		<input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}' })" id="datemin" class="input-text Wdate" style="width:120px;">
 		-
 		<input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'datemin\')}',maxDate:'%y-%M-%d' })" id="datemax" class="input-text Wdate" style="width:120px;">
 		<input type="text" class="input-text" style="width:250px" placeholder="输入比赛信息" id="" name="">
-		<button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
+		<button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜索赛事</button>
 	</div>
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="{{route('matchs_add')}}"  class="btn btn-primary radius"> <i class="Hui-iconfont">&#xe600;</i> 添加用户</a></span> <span class="r">共有数据：<strong>{{$data->count()}}</strong> 条</span> </div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="{{route('matchs_add')}}"  class="btn btn-primary radius"> <i class="Hui-iconfont">&#xe600;</i> 赛事添加</a></span> <span class="r">共有数据：<strong>{{$data->count()}}</strong> 条</span> </div>
 	<div class="mt-20">
 	<table class="table table-border table-bordered table-hover table-bg table-sort">
 		<thead>
@@ -40,7 +40,7 @@
 				<th width="50">ID</th>
 				<th width="100">赛事</th>
 				<th width="40">项目</th>
-				<th width="90">轮次</th>
+				<th width="110">轮次</th>
 				<th width="150">比赛时间</th>
 				<th width="50">台号</th>
 				<th width="130">运动员A</th>
@@ -53,20 +53,23 @@
 		</thead>
 		<tbody>
 		@foreach($data as $val)
-		@foreach($name as $nam)
-		@foreach($names as $na)
+
 			<tr class="text-c">
 				<td><input type="checkbox" value="{{$val->id}}" name=""></td>
 				<td>{{$val->id}}</td>
 				<!-- <td><u style="cursor:pointer" class="text-primary" onclick="member_show('张三','member-show.html','10001','360','400')"></u></td> -->
-				<td>{{$nam->competitions_name}}</td>
+				
+				<td>{{$val->competitions_id}}</td>
 				<td>{{$val->event}}</td>
 				<td>{{$val->round}}</td>
 				<td>{{$val->datetime}}</td>
 				<td>{{$val->table}}</td>
-				<td>{{$val->userA}}</td>
-				<td>{{$nam->name}}</td>
-				<td>{{$na->name}}</td>
+				
+				<td>{{$val->a_id}}</td>
+				
+				<td>{{$val->b_id}}</td>
+	
+				<td>{{$val->winner_id}}</td>
 				<td>{{$val->game_score}}</td>
 				<td>{{$val->point}}</td>
 				<!-- <td class="td-status"><span class="label label-success radius">已启用</span></td> -->
@@ -81,8 +84,7 @@
 			</tr>
 		</tbody>
 		@endforeach
-		@endforeach
-		@endforeach
+
 	</table>
 	</div>
 </div>
@@ -108,61 +110,13 @@ $(function(){
 	});
 	
 });
-/*用户-添加*/
-function member_add(title,url,w,h){
-	layer_show(title,url,w,h);
-}
-/*用户-查看*/
-function member_show(title,url,id,w,h){
-	layer_show(title,url,w,h);
-}
-/*用户-停用*/
-function member_stop(obj,id){
-	layer.confirm('确认要停用吗？',function(index){
-		$.ajax({
-			type: 'POST',
-			url: '',
-			dataType: 'json',
-			success: function(data){
-				$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_start(this,id)" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe6e1;</i></a>');
-				$(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">已停用</span>');
-				$(obj).remove();
-				layer.msg('已停用!',{icon: 5,time:1000});
-			},
-			error:function(data) {
-				console.log(data.msg);
-			},
-		});		
-	});
-}
 
-/*用户-启用*/
-function member_start(obj,id){
-	layer.confirm('确认要启用吗？',function(index){
-		$.ajax({
-			type: 'POST',
-			url: '',
-			dataType: 'json',
-			success: function(data){
-				$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_stop(this,id)" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>');
-				$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
-				$(obj).remove();
-				layer.msg('已启用!',{icon: 6,time:1000});
-			},
-			error:function(data) {
-				console.log(data.msg);
-			},
-		});
-	});
-}
+
 /*用户-编辑*/
 function member_edit(title,url,id,w,h){
 	layer_show(title,url,w,h);
 }
-/*密码-修改*/
-function change_password(title,url,id,w,h){
-	layer_show(title,url,w,h);	
-}
+
 /*用户-删除*/
 function member_del(obj,id){
 	layer.confirm('确认要删除吗？',function(index){
