@@ -58,7 +58,7 @@
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>比赛时间:</label>
 			<div class="formControls col-xs-8 col-sm-9">
 			<!-- <input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}' })" id="datemin" class="input-text Wdate" style="width:120px;"> -->
-				<input type="text" class="input-text" placeholder="比赛时间" name="datetime" id="datetime">
+				<input type="datetime-local" class="input-text" placeholder="比赛时间" name="datetime" id="2018-8-19T19:57:11">
 			</div>
 		</div>
 		<!-- <div class="container">
