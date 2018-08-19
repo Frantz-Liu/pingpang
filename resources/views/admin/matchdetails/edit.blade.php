@@ -25,41 +25,58 @@
 </head>
 <body>
 <article class="page-container">
+	@foreach($result as $val)
 	<form class="form form-horizontal" id="form-admin-add">
 	<div class="row cl">
 		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>赛事名称：</label>
 		<div class="formControls col-xs-8 col-sm-9">
-			<input type="text" class="input-text" value="" placeholder="" id="name" name="competitions_name">
+			<input type="text" class="input-text" value="{{$val -> competitions_name }}" placeholder="" id="name" name="competitions_name">
+		</div>
+	</div>
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>赛事日期：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="date" class="input-text" value="{{$val -> date }}" placeholder="" id="Name" name="date">
 		</div>
 	</div>
 	<div class="row cl">
 		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>比赛项目：</label>
-		<div class="formControls col-xs-8 col-sm-9">
-			<input type="text" class="input-text" value="" placeholder="" id="name" name="competitions_name">
-		</div>
-	</div>
-	<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>比赛轮次：</label>
-		<div class="formControls col-xs-8 col-sm-9">
-			<input type="text" class="input-text" value="" placeholder="" id="name" name="competitions_name">
-		</div>
-	</div>
-	<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>局数：</label>
-		<div class="formControls col-xs-8 col-sm-9">
-			<input type="text" class="input-text" value="" placeholder="" id="name" name="competitions_name">
+		<div class="formControls col-xs-8 col-sm-9"> 
+			<span class="">
+				<label class="">
+					<input type="checkbox" value="男单" name="events[]" @if(strstr($val -> events,'男单')) checked @endif>男单 
+				</label>
+				<label class="">
+					<input type="checkbox" value="男双" name="events[]" @if(strstr($val -> events,'男双')) checked @endif>男双 
+				</label>
+				<label class="">
+					<input type="checkbox" value="女单" name="events[]" @if(strstr($val -> events,'女单')) checked @endif>女单 
+				</label>
+				<label class="">
+					<input type="checkbox" value="女双" name="events[]" @if(strstr($val -> events,'女双')) checked @endif>女双 
+				</label>
+				<label class="">
+					<input type="checkbox" value="混合" name="events[]" @if(strstr($val -> events,'混合')) checked @endif>混合 
+				</label>
+				<label class="">
+					<input type="checkbox" value="男团" name="events[]" @if(strstr($val -> events,'男团')) checked @endif>男团 
+				</label>
+				<label class="">
+					<input type="checkbox" value="女团" name="events[]" @if(strstr($val -> events,'女团')) checked @endif>女团 
+				</label>
+			</span> 
 		</div>
 	</div>
 	<div class="row cl">
 		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>比赛国家：</label>
 		<div class="formControls col-xs-8 col-sm-9">
-			<input type="text" class="input-text" value="" placeholder="" id="country" name="counrty">
+			<input type="text" class="input-text" value="{{$val -> counrty}}" placeholder="" id="country" name="counrty">
 		</div>
 	</div>
 	<div class="row cl">
 		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>比赛城市：</label>
 		<div class="formControls col-xs-8 col-sm-9">
-			<input type="text" class="input-text" placeholder="" name="city" id="city">
+			<input type="text" class="input-text" value="{{$val -> city}}" name="city" id="city">
 		</div>
 	</div>
 	{{csrf_field()}}
@@ -70,6 +87,7 @@
 		</div>
 	</div>
 	</form>
+	@endforeach
 </article>
 
 <!--_footer 作为公共模版分离出去--> 

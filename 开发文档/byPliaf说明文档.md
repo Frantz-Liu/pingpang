@@ -41,12 +41,12 @@
 | game      | tinyInteger       | 局数                   |
 | a_score   | tinyInteger       | A得分                  |
 | b_score   | tinyInteger       | B得分                  |
-| server    | tinyInteger       | 发球方运动员id          |
-| a_count   | tinyInteger       | A拍数                  |
-| b_count   | tinyInteger       | B拍数                  |
+| server_id | tinyInteger       | 发球方运动员id          |
+| a_cout   | tinyInteger       | A拍数                  |
+| b_cout   | tinyInteger       | B拍数                  |
 | a_method  | string(20)        | A手段                  |
 | b_method  | string(20)        | B手段                  |
-| winner    | tinyInteger       | 得分方id               |
+| order_winner | tinyInteger       | 得分方id               |
 
 
 
