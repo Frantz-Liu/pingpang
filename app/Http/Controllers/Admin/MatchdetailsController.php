@@ -10,17 +10,17 @@ use Illuminate\Support\Facades\DB;
 //引入input类
 use Illuminate\Support\Facades\Input;
 
-//会员管理控制器
+//比赛详情管理控制器
 class MatchdetailsController extends Controller
 {
-    //展示管理员数据
+    //展示比赛详情数据
     public function index()
     {
-        $manager = DB::table('matchdetails')->get();
+        $matchdetails = DB::table('matchdetails')->get();
         return view('admin.matchdetails.index',compact('matchdetails'));
     }
 
-    //管理员添加
+    //比赛详情添加
     public function add()
     {
         if(Input::method() == "POST")
@@ -38,7 +38,7 @@ class MatchdetailsController extends Controller
         
     }
 
-    //管理删除
+    //删除
     public function delete()
     {   
         $id = Input::get('id');
@@ -46,7 +46,7 @@ class MatchdetailsController extends Controller
         return back(); //返回上级并刷新
     }
 
-    //管理员修改
+    //比赛详情修改
     public function edit()
     {
         if(Input::method() == "POST")
