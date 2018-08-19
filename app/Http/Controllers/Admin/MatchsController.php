@@ -104,7 +104,7 @@ class MatchsController extends Controller
             // $data = Input::except(['file']);
             //写入数据表
             $result = DB::table('matchs') -> insert($data);
-            
+            // var_dump($result);
             //判断
             if($result){
                // $response = ['code'=>0,'msg'=>'用户添加成功'];

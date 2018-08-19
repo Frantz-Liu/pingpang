@@ -30,7 +30,7 @@
 </head>
 <body>
 <article class="page-container">
-	<form action="" method="post" class="form form-horizontal" id="form-member-add">
+	<form action="" method="post" class="form form-horizontal" id="form-matchs-add">
 		<!-- 赛事 -->
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>赛事:</label>
@@ -105,14 +105,14 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>大比分:</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" placeholder="一个赛事比分" name="" id="">
+				<input type="text" class="input-text" placeholder="一个赛事比分" name="game_score" id="game_score">
 			</div>
 		</div>
 		<!-- 小比分 -->
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>小比分:</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" placeholder="每局赛事比分,中间用空格隔开" name="" id="">
+				<input type="text" class="input-text" placeholder="每局赛事比分,中间用空格隔开" name="point" id="point">
 			</div>
 		</div>
 		{{csrf_field()}}
@@ -144,37 +144,24 @@ $(function(){
 		radioClass: 'iradio-blue',
 		increaseArea: '20%'
 	});
-	
-	$("#form-member-add").validate({
-		rules:{
-			competitions:{
-				required:true,
-				minlength:2,
-				maxlength:16
-			},
-			event:{
-				required:true,
-			},
-			round:{
-				required:true,
-				isMobile:true,
-			},
-			table:{
-				required:true,
-				email:true,
-			// },
-			// :{
-			// 	required:true,
-			// },
-			
-		},
+	$("#form-matchs-add").validate({
 		onkeyup:false,
 		focusCleanup:true,
 		success:"valid",
 		submitHandler:function(form){
-			//$(form).ajaxSubmit();
+			$(form).ajaxSubmit({
+				type: 'post',
+				url: "" ,
+				success: function(data){
+					layer.msg('添加成功!',{icon:1,time:1000});
+					self.location = document.referrer;
+				},
+                error: function(XmlHttpRequest, textStatus, errorThrown){
+					layer.msg('error!',{icon:1,time:1000});
+				}
+			});
 			var index = parent.layer.getFrameIndex(window.name);
-			//parent.$('.btn-refresh').click();
+			parent.$('.btn-refresh').click();
 			parent.layer.close(index);
 		}
 	});
