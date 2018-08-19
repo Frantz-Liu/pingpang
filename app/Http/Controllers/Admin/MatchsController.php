@@ -31,13 +31,19 @@ class MatchsController extends Controller
         ->leftJoin('user as a2','a1.a_id','=','a2.id')
         //->leftJoin('competitions as a2','a1.competitions_id','=','a2.id')
         ->get();//运动员A
-
+        
+        //运动员B
         $name = DB::table('matchs')
         ->join('user','matchs.b_id','=','user.id')//连表获取运动员B名
         ->join('competitions','matchs.competitions_id','=','competitions.id')//获取赛事表中的赛事名;
         ->select('user.name','competitions.competitions_name')
         ->get();
         
+        //获胜方
+        $names = DB::table('matchs')
+        ->join('user','matchs.winner_id','=','user.id')
+        ->select('user.name')
+        ->get();
 
         // $cmp = DB::table('matchs')
         // ->join('competitions','matchs.competitions_id','=','competitions.id')
@@ -45,7 +51,7 @@ class MatchsController extends Controller
         // ->get();
         //var_dump($name);
         //展示视图,并将数据传到前端页面
-        return view('admin.matchs.index',compact('data','name'));
+        return view('admin.matchs.index',compact('data','name','names'));
     }
     public function delete(){
         //删除

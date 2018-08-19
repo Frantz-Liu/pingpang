@@ -54,6 +54,7 @@
 		<tbody>
 		@foreach($data as $val)
 		@foreach($name as $nam)
+		@foreach($names as $na)
 			<tr class="text-c">
 				<td><input type="checkbox" value="{{$val->id}}" name=""></td>
 				<td>{{$val->id}}</td>
@@ -65,7 +66,7 @@
 				<td>{{$val->table}}</td>
 				<td>{{$val->userA}}</td>
 				<td>{{$nam->name}}</td>
-				<td>{{$val->winner_id}}</td>
+				<td>{{$na->name}}</td>
 				<td>{{$val->game_score}}</td>
 				<td>{{$val->point}}</td>
 				<!-- <td class="td-status"><span class="label label-success radius">已启用</span></td> -->
@@ -79,6 +80,7 @@
 				</td>
 			</tr>
 		</tbody>
+		@endforeach
 		@endforeach
 		@endforeach
 	</table>

@@ -81,6 +81,13 @@
 				<input type="text" class="input-text" placeholder="运动员B" name="b_id" id="b_id">
 			</div>
 		</div>
+		<!-- 获胜方 -->
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>获胜方:</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" placeholder="获胜者" name="" id="" value = "">
+			</div>
+		</div>
 		<!-- 大比分 -->
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>大比分:</label>
