@@ -15,6 +15,7 @@ class UserController extends Controller
         //展示视图,携带数据
         return view('admin.user.index',compact('data'));
     }
+    //添加
     public function add(){
         //判断请求方式(前面需要引入input)
         if(Input::method()=='POST'){

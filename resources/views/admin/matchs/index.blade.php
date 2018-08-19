@@ -19,7 +19,7 @@
 <script type="text/javascript" src="/admin/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
-<title>用户管理</title>
+<title>赛事数据表</title>
 </head>
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 用户管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
@@ -31,7 +31,7 @@
 		<input type="text" class="input-text" style="width:250px" placeholder="输入比赛信息" id="" name="">
 		<button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
 	</div>
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="member_add('添加用户','member-add.html','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a></span> <span class="r">共有数据：<strong>{{$data->count()}}</strong> 条</span> </div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="{{route('matchs_add')}}"  class="btn btn-primary radius"> <i class="Hui-iconfont">&#xe600;</i> 添加用户</a></span> <span class="r">共有数据：<strong>{{$data->count()}}</strong> 条</span> </div>
 	<div class="mt-20">
 	<table class="table table-border table-bordered table-hover table-bg table-sort">
 		<thead>
@@ -47,32 +47,35 @@
 				<th width="130">运动员B</th>
 				<th width="130">获胜方</th>
 				<th width="70">大比分</th>
-				<th width="110">小比分</th>
+				<th width="100">小比分</th>
 				<th width="100">操作</th>
 			</tr>
 		</thead>
 		<tbody>
 		@foreach($data as $val)
-		@foreach($name as $name1)
+		@foreach($name as $name)
 			<tr class="text-c">
 				<td><input type="checkbox" value="{{$val->id}}" name=""></td>
 				<td>{{$val->id}}</td>
 				<!-- <td><u style="cursor:pointer" class="text-primary" onclick="member_show('张三','member-show.html','10001','360','400')"></u></td> -->
-				<td>{{$val->competitions_id}}</td>
+				<td>{{$name->competitions_name}}</td>
 				<td>{{$val->event}}</td>
 				<td>{{$val->round}}</td>
 				<td>{{$val->datetime}}</td>
 				<td>{{$val->table}}</td>
-				<td>{{$name1->name}}</td>
-				<td>{{$val->b_id}}</td>
+				<td>{{$val->userA}}</td>
+				<td>{{$name->name}}</td>
 				<td>{{$val->winner_id}}</td>
 				<td>{{$val->game_score}}</td>
 				<td>{{$val->point}}</td>
 				<!-- <td class="td-status"><span class="label label-success radius">已启用</span></td> -->
 				<td class="td-manage">
-					<a title="修改" href="javascript:;" onclick="member_edit('编辑','member-add.html','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> 
+					<a title="编辑" href="{{route('matchs_edit')}}?id={{$val->id}}"  class="ml-5" style="text-decoration:none">
+						<i class="Hui-iconfont">&#xe6df;</i>
+					</a> 
 					<a title="删除" href="{{route('matchs_delete')}}?id={{$val->id}}"  class="ml-5" style="text-decoration:none">
 					<i class="Hui-iconfont">&#xe6e2;</i>
+					</a>
 				</td>
 			</tr>
 		</tbody>

@@ -16,13 +16,34 @@ class MatchsController extends Controller
     //赛事数据列表
     public function index(){
         //获取数据库matchs中的数据
-        $data = DB::table('matchs')->get();
+        // $data = DB::table('matchs')->get();
+        // $name = DB::table('matchs')
+        // ->join('user','matchs.a_id','=','user.id')
+        // ->select('user.name')
+        // ->get();
+        
+        // $name1 = DB::table('matchs')
+        // ->join('user','matchs.b_id','=','user.id')
+        // ->select('user.name')
+        // ->get();
+        //左连接获取运动员A的数据
+        $data = DB::table('matchs as a1') ->select('a1.*','a2.name as userA')
+        ->leftJoin('user as a2','a1.a_id','=','a2.id')
+        //->leftJoin('competitions as a2','a1.competitions_id','=','a2.id')
+        ->get();//运动员A
+
         $name = DB::table('matchs')
-        ->join('user','matchs.a_id','=','user.id')
-        ->select('user.name')
+        ->join('user','matchs.b_id','=','user.id')//连表获取运动员B名
+        ->join('competitions','matchs.competitions_id','=','competitions.id')//获取赛事表中的赛事名;
+        ->select('user.name','competitions.competitions_name')
         ->get();
         
-        //var_dump($data);
+
+        // $cmp = DB::table('matchs')
+        // ->join('competitions','matchs.competitions_id','=','competitions.id')
+        // ->select('competitions.competitions_name')
+        // ->get();
+        //var_dump($name);
         //展示视图,并将数据传到前端页面
         return view('admin.matchs.index',compact('data','name'));
     }
@@ -38,6 +59,50 @@ class MatchsController extends Controller
             $response = ['code'=>1,'msg'=>'用户添加失败'];
         }
         
+    }
+    //修改
+    public function edit(){
+        //判断提交的方法
+       if(Input::Method() == 'POST'){
+        //POST方式提交数据
+       }else {
+           //get方式提交数据
+           $id = Input::get('id');
+           //根据id传递过来的数据进行获取数据表中的信息
+           $res = DB::table('matchs')->where('id','=',$id)->get();
+           //展示视图,携带数据
+           return view('admin.matchs.edit',compact('res'));
+       }
+    }
+    //添加数据
+    public function add(){
+        //判断请求方式(前面需要引入input)
+        if(Input::method()=='POST'){
+            //post请求
+            //数据验证
+            $data = Input::except(['_token']);
+            //去除webuploader默认追加的file表单项
+            unset($data['file']);
+            // $data = Input::except(['file']);
+            //写入数据表
+            $result = DB::table('matchs') -> insert($data);
+            
+            //判断
+            if($result){
+                $response = ['code'=>0,'msg'=>'用户添加成功'];
+                return  redirect('admin/matchs/index');
+            }else {
+                $response = ['code'=>1,'msg'=>'用户添加失败'];
+            }
+            //json返回数据
+            return response()->json($response);
+            
+        }else{
+            //get请求方式
+            return view('admin.matchs.add');
+           }
+            
+
     }
 
 }
