@@ -53,18 +53,18 @@
 		</thead>
 		<tbody>
 		@foreach($data as $val)
-		@foreach($name as $name)
+		@foreach($name as $nam)
 			<tr class="text-c">
 				<td><input type="checkbox" value="{{$val->id}}" name=""></td>
 				<td>{{$val->id}}</td>
 				<!-- <td><u style="cursor:pointer" class="text-primary" onclick="member_show('张三','member-show.html','10001','360','400')"></u></td> -->
-				<td>{{$name->competitions_name}}</td>
+				<td>{{$nam->competitions_name}}</td>
 				<td>{{$val->event}}</td>
 				<td>{{$val->round}}</td>
 				<td>{{$val->datetime}}</td>
 				<td>{{$val->table}}</td>
 				<td>{{$val->userA}}</td>
-				<td>{{$name->name}}</td>
+				<td>{{$nam->name}}</td>
 				<td>{{$val->winner_id}}</td>
 				<td>{{$val->game_score}}</td>
 				<td>{{$val->point}}</td>

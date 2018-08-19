@@ -62,18 +62,27 @@ class MatchsController extends Controller
     }
     //修改
     public function edit(){
-        //判断提交的方法
-       if(Input::Method() == 'POST'){
-        //POST方式提交数据
-       }else {
-           //get方式提交数据
-           $id = Input::get('id');
-           //根据id传递过来的数据进行获取数据表中的信息
-           $res = DB::table('matchs')->where('id','=',$id)->get();
-           //展示视图,携带数据
-           return view('admin.matchs.edit',compact('res'));
-       }
+        //判断请求方式
+        if (Input::method() == 'POST') {
+            //POST方式请求
+            $data = Input::except(['_token']);
+            $result = DB::table('matchs')->where('id','=',$data['id'])->update($data);
+            return  redirect('admin/matchs/index');
+        }else{
+            //get方式请求
+             $id = Input::get('id');
+            // //根据get传递的id获取数据表中的数据
+            $res = DB::table('matchs')->where('id','=',$id)->get(); 
+            //展示视图,携带数据
+            return view('admin.matchs.edit',compact('res'));
+        }
     }
+
+
+
+
+
+
     //添加数据
     public function add(){
         //判断请求方式(前面需要引入input)
@@ -89,7 +98,7 @@ class MatchsController extends Controller
             
             //判断
             if($result){
-                $response = ['code'=>0,'msg'=>'用户添加成功'];
+               // $response = ['code'=>0,'msg'=>'用户添加成功'];
                 return  redirect('admin/matchs/index');
             }else {
                 $response = ['code'=>1,'msg'=>'用户添加失败'];
@@ -103,6 +112,6 @@ class MatchsController extends Controller
            }
             
 
-    }
+        }
 
 }
