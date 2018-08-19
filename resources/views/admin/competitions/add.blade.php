@@ -26,6 +26,7 @@
 <body>
 <article class="page-container">
 	<form class="form form-horizontal" id="form-admin-add">
+	<form class="form form-horizontal" id="form-admin-add">
 	<div class="row cl">
 		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>赛事名称：</label>
 		<div class="formControls col-xs-8 col-sm-9">
@@ -33,21 +34,37 @@
 		</div>
 	</div>
 	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>赛事日期：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="date" class="input-text" value="" placeholder="" id="Name" name="date">
+		</div>
+	</div>
+	<div class="row cl">
 		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>比赛项目：</label>
-		<div class="formControls col-xs-8 col-sm-9">
-			<input type="text" class="input-text" value="" placeholder="" id="name" name="competitions_name">
-		</div>
-	</div>
-	<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>比赛轮次：</label>
-		<div class="formControls col-xs-8 col-sm-9">
-			<input type="text" class="input-text" value="" placeholder="" id="name" name="competitions_name">
-		</div>
-	</div>
-	<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>局数：</label>
-		<div class="formControls col-xs-8 col-sm-9">
-			<input type="text" class="input-text" value="" placeholder="" id="name" name="competitions_name">
+		<div class="formControls col-xs-8 col-sm-9"> 
+			<span class="">
+				<label class="">
+					<input type="checkbox" value="男单" name="events[]">男单 
+				</label>
+				<label class="">
+					<input type="checkbox" value="男双" name="events[]" >男双 
+				</label>
+				<label class="">
+					<input type="checkbox" value="女单" name="events[]" >女单 
+				</label>
+				<label class="">
+					<input type="checkbox" value="女双" name="events[]" >女双 
+				</label>
+				<label class="">
+					<input type="checkbox" value="混合" name="events[]" >混合 
+				</label>
+				<label class="">
+					<input type="checkbox" value="男团" name="events[]" >男团 
+				</label>
+				<label class="">
+					<input type="checkbox" value="女团" name="events[]" >女团 
+				</label>
+			</span> 
 		</div>
 	</div>
 	<div class="row cl">
@@ -59,7 +76,7 @@
 	<div class="row cl">
 		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>比赛城市：</label>
 		<div class="formControls col-xs-8 col-sm-9">
-			<input type="text" class="input-text" placeholder="" name="city" id="city">
+			<input type="text" class="input-text" value="" name="city" id="city">
 		</div>
 	</div>
 	{{csrf_field()}}
