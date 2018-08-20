@@ -80,12 +80,14 @@
                     <div class="layui-inline layui-col-xs3"> <!-- 注意：这一层元素并不是必须的 -->
                         <input type="text" class="layui-input" placeholder="比赛年/月份" id="demoReload">
                     </div>
+                    
                     <div class="layui-inline layui-col-xs3">
                         <select name="city" lay-verify="" lay-search id="demoReload1">
                             <option value="">比赛赛事</option>
                                                         <option value="2018年世锦赛团体小组赛">2018年世锦赛团体小组赛</option>
                                                     </select>
                     </div>
+                    
                     <div class="layui-inline layui-col-xs3">
                         <select name="city" lay-verify="" lay-search id="demoReload2">
                             <option value="">举 办 地</option>
