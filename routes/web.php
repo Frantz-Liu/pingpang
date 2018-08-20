@@ -14,10 +14,14 @@
 Route::get('admin/public/login','Admin\PublicController@login')->name('login');
 Route::post('admin/public/check','Admin\PublicController@check')->name('admin_check_login');//用户检测
 
+<<<<<<< HEAD
 
 Route::get('admin/index/index', 'Admin\IndexController@index')->name('dashboard');//后台首页
 
 // Route::group(['prefix' => 'admin','middleware'=>'auth:admin'],function(){
+=======
+Route::group(['prefix' => 'admin','middleware'=>'auth:admin'],function(){
+>>>>>>> 28d1a14f3d95f8a9abd9a1c17fb4079ce0c3284d
     //后台首页路由
     //Route::get('index/index', 'Admin\IndexController@index')->name('dashboard');//后台首页
     Route::get('admin/index/welcome', 'Admin\IndexController@welcome')->name('welcome');//后台欢迎页
@@ -57,5 +61,5 @@ Route::get('admin/matchdetails/delete','Admin\MatchdetailsController@delete') ->
 Route::any('admin/matchdetails/edit','Admin\MatchdetailsController@edit') -> name('matchdetails_edit'); //编辑比赛详情
 
 
-//前台路由
-Route::get('/','Home\IndexController@index');//首页
+//前台路由 ByPliaf 
+Route::any('/','Home\IndexController@index') -> name('index'); //首页
