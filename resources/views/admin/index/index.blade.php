@@ -28,14 +28,14 @@
 <body>
 <header class="navbar-wrapper">
 	<div class="navbar navbar-fixed-top">
-		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="{{route('admin_index')}}">后台管理中心</a>
+		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="{{route('dashboard')}}">后台管理中心</a>
 			<nav class="nav navbar-nav">
 		</nav>
 		<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
 			<ul class="cl">
 				<li>超级管理员</li>
 				<li class="dropDown dropDown_hover">
-					<a href="#" class="dropDown_A">{{Auth::guard('admin') -> user() -> username}}<i class="Hui-iconfont">&#xe6d5;</i></a>
+					<a href="#" class="dropDown_A"><i class="Hui-iconfont">&#xe6d5;</i></a>
 					<ul class="dropDown-menu menu radius box-shadow">
 						<li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
 						<li><a href="#">切换账户</a></li>

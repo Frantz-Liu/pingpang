@@ -32,6 +32,7 @@ class PublicController extends Controller
         $data['status'] = '2'; //2表示状态为正常帐号
         //Auth认证
         if(Auth::guard() -> attempt($data,$request -> get('online'))){
+        //if(Auth::guard() -> attempt($request -> get('online'))){
             //验证通过
             return redirect(route('dashboard'));
         }else{

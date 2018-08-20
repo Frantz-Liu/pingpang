@@ -71,8 +71,8 @@ return [
     'providers' => [
         //定义提供者
         'manager'=>[
-            'driver'=>'eloquent',
-            'model' =>App\model\Manager::class,
+            'driver'=>'eloquent',//模型
+            'model' =>App\Model\Manager::class,
         ],
         // 'users' => [
         //     'driver' => 'database',
