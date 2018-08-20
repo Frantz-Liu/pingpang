@@ -78,66 +78,84 @@
                 <form class="layui-form">
                 <div class="demoTable" >
                     <div class="layui-inline layui-col-xs3"> <!-- 注意：这一层元素并不是必须的 -->
-                        <input type="text" class="layui-input" placeholder="比赛年/月份" id="demoReload">
-                    </div>
-                    
+                    <input type="text" class="layui-input" placeholder="比赛年/月份" id="demoReload" name="date">
+                    </div>                    
                     <div class="layui-inline layui-col-xs3">
-                        <select name="city" lay-verify="" lay-search id="demoReload1">
+                        <select name="competitions_name" lay-verify="" lay-search id="demoReload1">
                             <option value="">比赛赛事</option>
-                                                        <option value="2018年世锦赛团体小组赛">2018年世锦赛团体小组赛</option>
-                                                    </select>
+                            @foreach($competitions as $val)                            
+                                <option value="{{$val -> id}}">{{$val -> competitions_name}}</option>
+                            @endforeach
+                         </select>
                     </div>
                     
                     <div class="layui-inline layui-col-xs3">
-                        <select name="city" lay-verify="" lay-search id="demoReload2">
+                        <select name="competitions_city" lay-verify="" lay-search id="demoReload2">
                             <option value="">举 办 地</option>
-                                                        <option value="北京">北京</option>
-                                                    </select>
+                            @foreach($competitions as $val)                            
+                                <option value="{{$val -> city}}">{{$val -> counrty}}-{{$val -> city}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="layui-inline layui-col-xs3">
-                        <select name="city" lay-verify=""lay-search id="demoReload3">
+                        <select name="A_name" lay-verify=""lay-search id="demoReload3">
                             <option value="">运动员A </option>
-                                                        <option value="23">樊振东</option>
-                                                        <option value="24">JoaoGERALDO</option>
-                                                    </select>
+                            @foreach($user as $val)                            
+                                <option value="{{$val -> id}}">{{$val -> name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="layui-inline layui-col-xs3">
-                        <select name="city" lay-verify=""lay-search id="demoReload4">
+                        <select name="B_name" lay-verify=""lay-search id="demoReload4">
                             <option value="">运动员B</option>
-                                                        <option value="23">樊振东</option>
-                                                        <option value="24">JoaoGERALDO</option>
-                                                    </select>
+                            @foreach($user as $val)                            
+                                <option value="{{$val -> id}}">{{$val -> name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="layui-inline layui-col-xs3">
-                        <select name="city" lay-verify=""lay-search id="demoReload5">
+                        <select name="racket_hand" lay-verify=""lay-search id="demoReload5">
                             <option value="">执拍手</option>
-                                                        <option value="左手">左手</option>
-                                                        <option value="右手">右手</option>
-                                                    </select>
+                                <option value="左手">左手</option>
+                                <option value="右手">右手</option>
+                        </select>
                     </div>
                     <div class="layui-inline layui-col-xs3">
-                        <select name="city" lay-verify=""lay-search id="demoReload6">
+                        <select name="style" lay-verify=""lay-search id="demoReload6">
                             <option value="">打法类型</option>
-                                                        <option value="快攻结合弧圈">快攻结合弧圈</option>
-                                                    </select>
+                            @foreach($user as $val)                            
+                                <option value="{{$val -> style}}">{{$val -> style}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="layui-inline layui-col-xs3">
-                        <select name="city" lay-verify=""lay-search id="demoReload7">
+                        <select name="grip" lay-verify=""lay-search id="demoReload7">
                             <option value="">直横拍</option>
-                                                        <option value="横拍">横拍</option>
-                                                    </select>
+                            <option value="横拍">横拍</option>
+                            <option value="横拍">直拍</option>
+                        </select>
                     </div>
                     <div class="layui-inline layui-col-xs3">
-                        <select name="city" lay-verify="" lay-search id="demoReload8">
+                        <select name="round" lay-verify="" lay-search id="demoReload8">
                             <option value="">比赛阶段</option>
-                                                        <option value="小组赛">小组赛</option>
-                                                    </select>
+                            <option value="小组赛">决赛</option>
+                            <option value="半决赛">半决赛</option>
+                            <option value="1/4决赛">1/4决赛</option>
+                            <option value="小组赛">小组赛</option>
+                            <option value="淘汰赛">淘汰赛</option>
+                        </select>
                     </div>
                     <div class="layui-inline layui-col-xs3">
-                        <select name="city" lay-verify=""lay-search id="demoReload9">
+                        <select name="event" lay-verify=""lay-search id="demoReload9">
                             <option value="">比赛项目</option>
-                                                        <option value="男单">男单</option>
-                                                    </select>
+                            <option value="男单">男单</option>
+                            <option value="男双">男双</option>
+                            <option value="女单">女单</option>
+                            <option value="女双">女双</option>
+                            <option value="男团">男团</option>
+                            <option value="女团">女团</option>
+                            <option value="混双">混双</option>
+                        </select>
                     </div>
                     <div class="layui-inline">
                         <button class="layui-btn" data-type="reload">搜索</button>
@@ -163,11 +181,12 @@
         <div class="layui-row">
             <div class="demoTable1">
                 <div class="layui-inline layui-col-xs3">
-                    <select name="city" lay-verify="" lay-search id="sou_one" class="layui-input layui_select">
-                        <option value="">所有人</option>
-                                                <option value="23" class="option_item">樊振东</option>
-                                                <option value="24" class="option_item">JoaoGERALDO</option>
-                                            </select>
+                    <select name="UserName" lay-verify="" lay-search id="sou_one" class="layui-input layui_select">
+                        <option value="" class="option_item">所有人</option>
+                        @foreach($user as $val)                            
+                                <option value="{{$val -> id}}" class="option_item" >{{$val -> name}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="layui-inline layui-col-xs1">
                     <button class="layui-btn"  data-type="reload">搜索</button>
