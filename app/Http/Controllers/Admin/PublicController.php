@@ -14,6 +14,7 @@ class PublicController extends Controller
         //展示页面
         return view('admin.public.login');
     }
+    //登录验证方法
     public function check(Request $request){
         //开始自动验证
         $this->validate($request,[
@@ -30,14 +31,16 @@ class PublicController extends Controller
         //开始进行身份合法性验证
         $data = $request -> only(['username','password']);
         $data['status'] = '2'; //2表示状态为正常帐号
+        //var_dump($data);
         //Auth认证
-        if(Auth::guard() -> attempt($data,$request -> get('online'))){
-        //if(Auth::guard() -> attempt($request -> get('online'))){
+        if(Auth::guard() -> attempt($data, $request -> get('online'))){
             //验证通过
+            //echo 'chenggong';
             return redirect(route('dashboard'));
         }else{
             //验证失败
             return redirect(route('login')) -> withErrors(['error' => '用户名或密码错误!']);
+            //echo '失败';
         }
     
     }

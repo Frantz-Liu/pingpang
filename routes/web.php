@@ -10,8 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-//登录路由
-Route::get('admin/public/login','Admin\PublicController@login')->name('login');
+//展示登录页面
+Route::get('admin/public/login','Admin\PublicController@login')->name('login');//登录页面
 Route::post('admin/public/check','Admin\PublicController@check')->name('admin_check_login');//用户检测
 
 
