@@ -115,6 +115,7 @@
 				<input type="text" class="input-text" placeholder="每局赛事比分,中间用空格隔开" name="point" id="point">
 			</div>
 		</div>
+		<!-- csrf验证隐藏 -->
 		{{csrf_field()}}
 		<!-- 提交取消按钮 -->
 		<div class="row cl">

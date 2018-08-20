@@ -100,7 +100,7 @@ class MatchsController extends Controller
             //数据验证
             $data = Input::except(['_token']);
             //去除webuploader默认追加的file表单项
-            unset($data['file']);
+            //unset($data['file']);
             // $data = Input::except(['file']);
             //写入数据表
             $result = DB::table('matchs') -> insert($data);
