@@ -54,3 +54,7 @@ Route::get('admin/matchdetails','Admin\MatchdetailsController@index') -> name('m
 Route::any('admin/matchdetails/add','Admin\MatchdetailsController@add') -> name('matchdetails_add'); //添加比赛详情
 Route::get('admin/matchdetails/delete','Admin\MatchdetailsController@delete') -> name('matchdetails_delete'); //删除比赛详情
 Route::any('admin/matchdetails/edit','Admin\MatchdetailsController@edit') -> name('matchdetails_edit'); //编辑比赛详情
+
+
+//前台路由
+Route::get('/','Home\IndexController@index');//首页
