@@ -14,16 +14,11 @@
 Route::get('admin/public/login','Admin\PublicController@login')->name('login');
 Route::post('admin/public/check','Admin\PublicController@check')->name('admin_check_login');//用户检测
 
-<<<<<<< HEAD
 
-Route::get('admin/index/index', 'Admin\IndexController@index')->name('dashboard');//后台首页
 
 // Route::group(['prefix' => 'admin','middleware'=>'auth:admin'],function(){
-=======
-Route::group(['prefix' => 'admin','middleware'=>'auth:admin'],function(){
->>>>>>> 28d1a14f3d95f8a9abd9a1c17fb4079ce0c3284d
     //后台首页路由
-    //Route::get('index/index', 'Admin\IndexController@index')->name('dashboard');//后台首页
+    Route::get('admin/index/index', 'Admin\IndexController@index')->name('dashboard');//后台首页
     Route::get('admin/index/welcome', 'Admin\IndexController@welcome')->name('welcome');//后台欢迎页
     //退出路由
     Route::get('admin/index/logout','Admin\IndexController@logout') -> name('logout');
@@ -33,13 +28,14 @@ Route::group(['prefix' => 'admin','middleware'=>'auth:admin'],function(){
     Route::get('admin/user/delete', 'Admin\UserController@delete')->name('user_delete');//实现人员删除
     Route::any('admin/user/edit','Admin\UserController@edit')->name('user_edit');//人员编辑
     Route::post('admin/uploader/webuploader','Admin\UploaderController@webuploader')->name('webuploader');//头像上传
-
+    Route::any('admin/user/import','Admin\UserController@import')->name('user_import');
     //实现matchs比赛数据表
     Route::get('admin/matchs/index','Admin\MatchsController@index')->name('matchs_index');//比赛数据列表展示
     Route::get('admin/matchs/delete','Admin\MatchsController@delete')->name('matchs_delete');//比赛删除
     Route::any('admin/matchs/add','Admin\MatchsController@add')->name('matchs_add');//比赛添加
     Route::any('admin/matchs/edit','Admin\MatchsController@edit')->name('matchs_edit');//比赛修改
 // });
+
 
 
 //后台管理员管理页面 ByPliaf

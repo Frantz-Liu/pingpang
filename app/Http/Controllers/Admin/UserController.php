@@ -77,4 +77,21 @@ class UserController extends Controller
             return view('admin.user.edit',compact('res'));
         }
     }
+    //文件的导入操作
+    public function import(){
+        if(Input::method() == 'POST'){
+            //post方式
+            //获取前台表单中的formdata传递过来的全部数据
+            $post = Input::all();
+            //根据文档,这里是写的文件的路径
+            $filePash ='.'.  $post['excelpath'];
+            Excel::load($filePath,function($reader){
+                $data = $reader ->all();
+                dd($data);
+            });
+        }else{
+            //get方式
+            return view('admin.user.import');
+        }
+    }
 }
