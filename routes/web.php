@@ -11,7 +11,7 @@
 |
 */
 //登录路由
-Route::get('admin/public/login','Admin\PublicController@login');
+Route::get('admin/public/login','Admin\PublicController@login')->name('login');
 Route::post('admin/public/check','Admin\PublicController@check')->name('admin_check_login');//用户检测
 
 
