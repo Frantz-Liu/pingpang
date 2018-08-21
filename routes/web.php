@@ -58,4 +58,6 @@ Route::any('admin/matchdetails/edit','Admin\MatchdetailsController@edit') -> nam
 
 
 //前台路由 ByPliaf 
-Route::any('/','Home\IndexController@index') -> name('index'); //首页
+Route::get('/','Home\IndexController@index') -> name('index'); //首页
+
+Route::get('getdate','Home\IndexController@getDate')->name('getdate');
