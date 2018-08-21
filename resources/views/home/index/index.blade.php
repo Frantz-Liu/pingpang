@@ -218,15 +218,15 @@
                 elem: '#LAY_table_user'
                 ,url: "{{route('getdate')}}"
                 ,cols: [[
-                   {field:'id_sort', title: '序号', width:80, sort: true, fixed: true}
-                    ,{field:'game_date', title: '比赛时间', width:120}
-                    ,{field:'game_name', title: '比赛名称', width:100, sort: true}
-                    ,{field:'game_project', title: '比赛项目', width:80}
-                    ,{field:'game_stage', title: '比赛阶段', width:80}
-                    ,{field:'user_a', title: '运动员A', sort: true, width:80}
-                    ,{field:'user_b', title: '运动员B', sort: true, width:80}
-                    ,{field:'big', title: '大比分', width:80}
-                    ,{field:'small', title: '小比分', sort: true}
+                   {field:'id', title: '序号', width:80, sort: true, fixed: true}
+                    ,{field:'datetime', title: '比赛时间', width:120}
+                    ,{field:'competitions_id', title: '比赛名称', width:100, sort: true}
+                    ,{field:'event', title: '比赛项目', width:80}
+                    ,{field:'round', title: '比赛阶段', width:80}
+                    ,{field:'a_id', title: '运动员A', sort: true, width:80}
+                    ,{field:'b_id', title: '运动员B', sort: true, width:80}
+                    ,{field:'game_score', title: '大比分', width:80}
+                    ,{field:'point', title: '小比分', sort: true}
                     ,{fixed: 'right', width:78, align:'center', toolbar: '#barDemo'}
                 ]]
                 ,id: 'testReload'
