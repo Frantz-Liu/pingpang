@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Intervention\Image\Response;
 
 class IndexController extends Controller
 {
@@ -19,4 +20,12 @@ class IndexController extends Controller
         return view('home.index.index',compact('competitions','user'));
     }
 
+    public function getDate()
+    {
+        //$data = Input::get();
+        //$b = $data['key']['game_data'];
+        //dd($data['key']['game_date']);
+        $a = ["game_date" =>'sb'];
+        echo json_encode($a);
+    }
 }

@@ -216,7 +216,7 @@
             //方法级渲染
             table.render({
                 elem: '#LAY_table_user'
-                ,url: "/index_api.html"
+                ,url: "{{route('getdate')}}"
                 ,cols: [[
                    {field:'id_sort', title: '序号', width:80, sort: true, fixed: true}
                     ,{field:'game_date', title: '比赛时间', width:120}
