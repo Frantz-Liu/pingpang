@@ -556,6 +556,16 @@
 
 <!--雷达图-->
 <script>
+    //ajax异步请求
+    /* $.ajax(){
+        type:"get"
+        url:
+        data:
+        dataType: "json"
+        success:function(data){
+            
+        }
+         }*/
     var my3 = echarts.init(document.getElementById('duan_leida'));
     option = {
         title: {
