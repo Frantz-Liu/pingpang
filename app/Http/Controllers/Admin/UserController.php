@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\Model\User;
 use Illuminate\Support\Facades\Input;
+
 class UserController extends Controller
 {
     //运动员列表
@@ -85,10 +86,10 @@ class UserController extends Controller
             $post = Input::all();
             //根据文档,这里是写的文件的路径
             $filePash ='.'.  $post['excelpath'];
-            Excel::load($filePath,function($reader){
-                $data = $reader ->all();
-                dd($data);
-            });
+            // Excel::load($filePath,function($reader){
+            //     $data = $reader ->all();
+            //     dd($data);
+           // });
         }else{
             //get方式
             return view('admin.user.import');

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Manager extends Model implements \Illuminate\Contracts\Auth\Authenticatable
 {
-    //基本定义
+    //基本定义,定义我们使用的数据表
     protected $table = 'manager';
     //使用trait
     use Authenticatable;
