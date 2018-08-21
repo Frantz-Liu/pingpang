@@ -34,9 +34,10 @@ Route::post('admin/public/check','Admin\PublicController@check')->name('admin_ch
     Route::get('admin/matchs/delete','Admin\MatchsController@delete')->name('matchs_delete');//比赛删除
     Route::any('admin/matchs/add','Admin\MatchsController@add')->name('matchs_add');//比赛添加
     Route::any('admin/matchs/edit','Admin\MatchsController@edit')->name('matchs_edit');//比赛修改
-// });
+    // });
 
-
+//前台的数据展示(datashow) 
+Route::get('front/list/index','Front\ListController@list')->name('index_list');//比赛信息列表
 
 //后台管理员管理页面 ByPliaf
 Route::get('admin/manager','Admin\ManagerController@index')-> name('manager_index'); //管理员视图列表
