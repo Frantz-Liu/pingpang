@@ -9,7 +9,7 @@ use DB;
 class ListController extends Controller
 {
     //展示比赛的数据
-    public function list(){
+    public function point(){
         //获取到列表中需要的数据
         $da = DB::table('matchdetails')->get();
         $data = [];
@@ -57,9 +57,15 @@ class ListController extends Controller
                 $data['b_scl'] = isset($data['b_scl']) ? $data['b_scl'] +1 :1;
             }
         }
+    
         return response()->json($data);
+        //return view('front.list.index');
             //return json_encode($data);
         //var_dump($data);
         //return view('front.list.index');
     }
+    public function list(){
+        return view('front.list.index');
+    }
+    
 }

@@ -557,15 +557,23 @@
 <!--雷达图-->
 <script>
     //ajax异步请求
-    /* $.ajax(){
-        type:"get"
-        url:
-        data:
-        dataType: "json"
-        success:function(data){
-            
-        }
-         }*/
+    // $.ajax({
+    //     type:"get",
+    //     url:"{{route('list_point')}}?id=1",
+    //     datatype: "json",
+    //     success:function(data){
+    //         option.series[0].data=[
+    //             {value: ,name:  },
+    //             {value: ,name: },
+    //             {value: ,name: },
+    //             {value: ,name: }
+                
+                
+                
+                
+    //             ]
+    //     }
+    //      },'json');
     var my3 = echarts.init(document.getElementById('duan_leida'));
     option = {
         title: {
@@ -603,14 +611,14 @@
             type: 'radar',
             // areaStyle: {normal: {}},
             data : [
-                {
-                    value : [55.17, 50, 46.15, 61.54, 52.31],
-                    name : '樊振东'
-                },
-                {
-                    value : [59.46, 54.29, 15.38, 28.57, 52.89],
-                    name : 'JoaoGERALDO'
-                }
+                // {
+                //     value : [55.17, 50, 46.15, 61.54, 52.31],
+                //     name : '樊振东'
+                // },
+                // {
+                //     value : [59.46, 54.29, 15.38, 28.57, 52.89],
+                //     name : 'JoaoGERALDO'
+                // }
             ]
         }]
     };

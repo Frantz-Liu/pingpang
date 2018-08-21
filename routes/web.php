@@ -38,6 +38,7 @@ Route::post('admin/public/check','Admin\PublicController@check')->name('admin_ch
 
 //前台的数据展示(datashow) 
 Route::get('front/list/index','Front\ListController@list')->name('index_list');//比赛信息列表
+Route::get('point','Front\ListController@point')->name('list_point');//接口
 
 //后台管理员管理页面 ByPliaf
 Route::get('admin/manager','Admin\ManagerController@index')-> name('manager_index'); //管理员视图列表
